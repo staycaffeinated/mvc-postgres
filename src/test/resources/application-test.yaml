@@ -1,0 +1,21 @@
+spring:
+    config:
+        activate:
+            on-profile: test
+
+    datasource:
+        driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+        url: jdbc:tc:postgresql:9.6.8:///testdb?currentSchema=public
+        username: postgres
+        password: postgres
+        initialization-mode: embedded
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        generate-ddl: true
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+            settings:
+                trace: false
+                web-allow-others: false
